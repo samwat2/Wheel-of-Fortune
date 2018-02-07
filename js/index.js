@@ -41,6 +41,7 @@ class WheelOfFortune {
 			$('.phrase').append(`<div class="word-letter col border text-center" data-letter="${phrase[i].toLowerCase()}">&nbsp;</div>`);
 		}
 		this.displayPoints();
+		this.multipleRounds();
 	}
 
 	letterPress(letter){
@@ -62,17 +63,32 @@ class WheelOfFortune {
 		var phrase = this.phrases[this.currentPhraseIndex].phrase;
 		if ($('#word-guess').val() === phrase) {
 			$('.alert.alert-success').css("display", "inline-block");
+			this.points = 0;
+			this.displayPoints();	
+			this.phrases[this.currentPhraseIndex[+1]];
 		}else{
 			$('.alert.alert-fail').css("display", "inline-block");
 			this.points = 0;
 			this.displayPoints();	
 		}
 	}
-	displayPoints(){
+	displayPoints() {
 		$('#points_').text(this.points);
 	}
+	multipleRounds() {
+		// var letter = $(this).text().toLowerCase();
+		var phrase = this.phrases[this.currentPhraseIndex].phrase;
+		if ($('.phrase') === phrase) {
+			$('.alert.alert-success').css("display", "inline-block");
+			this.points = 0;
+			this.displayPoints();	
+			for (var i = 0; i < phrase.length; i++) {
+					var	phrase = this.phrases[this.currentPhraseIndex[i]].phrase;
+					}		
+		}
+		this.letterPress();
+	}
 }
-
 
 
 var wheelOfFortune = new WheelOfFortune();
@@ -111,6 +127,7 @@ $('#button').click(function(){
 	wheelOfFortune.inputBox();
 });
 
+wheelOfFortune.multipleRounds();
 // $('.points').update(function(e){
 // 	e.preventDefault();
 // 	wheelOfFortune.pointsBoard();
