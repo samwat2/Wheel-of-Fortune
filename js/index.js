@@ -65,7 +65,7 @@ class WheelOfFortune {
 			$('.alert.alert-success').css("display", "inline-block");
 			this.points = 0;
 			this.displayPoints();	
-			this.phrases[this.currentPhraseIndex[+1]];
+			// this.phrases[this.currentPhraseIndex[+1]];
 		}else{
 			$('.alert.alert-fail').css("display", "inline-block");
 			this.points = 0;
@@ -82,13 +82,13 @@ class WheelOfFortune {
 			$('.alert.alert-success').css("display", "inline-block");
 			this.points = 0;
 			this.displayPoints();	
-			for (var i = 0; i < phrase.length; i++) {
-					var	phrase = this.phrases[this.currentPhraseIndex[i]].phrase;
-					}		
-		}
-		this.letterPress();
+			// for (var i = 0; i < phrase.length; i++) {
+			// 		var	phrase = this.phrases[this.currentPhraseIndex[i]].phrase;
+		}		
+		
 	}
 }
+
 
 
 var wheelOfFortune = new WheelOfFortune();
