@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="css/index.css">
+		<script src="js/cookies.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+  	<div class="jumbotron jumbotron-fluid">
+		  <div class="container">
+		    <h1 class="display-4">Wheel Of Fortune!</h1>
+		    <p class="lead">If you play the game right...My fortune will be your prize!</p>
+		  </div>
+		  <div class="input-group mb-3">
+			  <input id="word-guess" type="text" class="form-control" placeholder="Take A Chance And Guess The Whole Word!" aria-label="Recipient's username" aria-describedby="basic-addon2">
+			  <div class="input-group-append">
+			    <button class="btn btn-outline-secondary" type="button" id="button">Guess!</button>
+			  </div>
+			</div>
+		</div>
+		<div class="alert alert-success" role="alert">
+		  <h4 class="alert-heading">Well done!</h4>
+		  <p>Aww yeah, you successfully did something(like winning this game)!</p>
+		  <hr>
+		  <p class="mb-0">you keep doing you!</p>
+		</div>
+		<div class="alert alert-fail" role="alert">
+		  <h4 class="alert-heading">Sorry!</h4>
+		  <p>Keep tryin pal!</p>
+		  <hr>
+		  <p class="mb-0">or just give-up:)</p>
+		</div>
+		
+		<div class="letters-wrapper">
+			<div class="row">
+				<div class="letter col-sm border text-center" id="A">A</div>
+				<div class="letter col-sm border text-center" id="B">B</div>
+				<div class="letter col-sm border text-center" id="C">C</div>
+				<div class="letter col-sm border text-center" id="D">D</div>
+				<div class="letter col-sm border text-center" id="E">E</div>
+				<div class="letter col-sm border text-center" id="F">F</div>
+				<div class="letter col-sm border text-center" id="G">G</div>
+				<div class="letter col-sm border text-center" id="H">H</div>
+				<div class="letter col-sm border text-center" id="I">I</div>
+				<div class="letter col-sm border text-center" id="J">J</div>
+				<div class="letter col-sm border text-center" id="K">K</div>
+				<div class="letter col-sm border text-center" id="L">L</div>
+				<div class="letter col-sm border text-center" id="M">M</div>
+			</div>
+			<div class="row">
+				<div class="letter col-sm border text-center" id="N">N</div>
+				<div class="letter col-sm border text-center" id="O">O</div>
+				<div class="letter col-sm border text-center" id="P">P</div>
+				<div class="letter col-sm border text-center" id="Q">Q</div>
+				<div class="letter col-sm border text-center" id="R">R</div>
+				<div class="letter col-sm border text-center" id="S">S</div>
+				<div class="letter col-sm border text-center" id="T">T</div>
+				<div class="letter col-sm border text-center" id="U">U</div>
+				<div class="letter col-sm border text-center" id="V">V</div>
+				<div class="letter col-sm border text-center" id="W">W</div>
+				<div class="letter col-sm border text-center" id="X">X</div>
+				<div class="letter col-sm border text-center" id="Z">Z</div>
+			</div>
+		</div>
+		
+		<div class="points">
+			<h1>POINTS!<span class="badge badge-secondary" id="points_">0</span></h1>
+		</div>
+    						<!-- buttons -->
+  	<button type="button" class="btn btn-primary" id="spin"> Spin Wheel!  </button>
+
+		<img src="images/Wheel.png" id="wheel"></img>
+
+		<div class="phrase row" id="frase"></div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
+</html>
