@@ -1,0 +1,28 @@
+html, body {
+background-color: #e6ccff;
+font-family: "Times New Roman", Georgia, Serif;
+}
+
+#wheel {
+	height: 50%;
+	width: 50%;
+	display: block;
+	left: 50%;
+	transition: all 1s ease;
+}
+.col-sm {
+	border-color: #000000;
+	background-color: #cce6ff;
+	transition: all 2s ease;
+	cursor: pointer; 
+}
+.disabled {
+	background-color: #BEBEBE;
+	cursor: default;
+}
+.alert.alert-success {
+	display: none;
+}
+.alert.alert-fail {
+	display: none;
+}
