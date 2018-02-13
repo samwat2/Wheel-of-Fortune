@@ -3,9 +3,11 @@ class WheelOfFortune {
 		this.phrases = [{phrase: "Chill Digger", hint: 'C'}, {phrase:"Country Roads Take Me Home", hint:'C'}, {phrase:"Championship Match", hint: 'C'}, {phrase: "Mythological Hero Achilles", hint: 'M'}];
 		this.prizes = [1500, 150, 180, 450, 230, 180, 145, 430, 310, 385, 230, 430, 310, 180, 310, 375, 610, 310, 530, 230, 385];
 		this.multiplier = 0;
-		this.currentPhraseIndex = 0;
+		// this.currentPhraseIndex = 0;
 		var points = Cookies.get('points');
 		this.points = points ? JSON.parse(points) : 0;
+		this.currentRound = 0;
+
 	}
 	randonPhraseGenerator(){
 		//**********************************************
@@ -31,21 +33,31 @@ class WheelOfFortune {
 
 	}
 	showGameBoard(){ 
-		var phrase = this.phrases[this.currentPhraseIndex].phrase;
+		var phrase = this.phrases[this.currentRound].phrase;
 		// for (var i = 0; i < this.phrases.length; i++) {
 		// this.phrases[this.currentPhraseIndex].phrase;
 		//}
 		//Getting the code to display the next phrase.
 
 		for (var i = 0; i < phrase.length; i++) {
-			$('.phrase').append(`<div class="word-letter col border text-center" data-letter="${phrase[i].toLowerCase()}">&nbsp;</div>`);
+			$('.phrase').append(`<div class="word-letter col border text-center" data-letter="${phrase[i] === ' ' ? '' : phrase[i].toLowerCase()}">&nbsp;</div>`);
 		}
 		this.displayPoints();
-		this.multipleRounds();
+	}
+	resetGameBoard(){
+		// 1 - remove old phrase
+		$('#frase').empty();
+		// 2 - reset points
+		this.points = 0
+		// 3 - show new phrase
+		this.showGameBoard();
+		// 4- take disabled off letters
+		$('.letters').removeClass('disabled');
+
 	}
 
 	letterPress(letter){
-		var phrase = this.phrases[this.currentPhraseIndex].phrase;
+		var phrase = this.phrases[this.currentRound].phrase;
 		console.log(phrase);
 		if (phrase.toLowerCase().indexOf(letter) >= 0) {
 			this.updatePoints();
@@ -55,12 +67,15 @@ class WheelOfFortune {
 					$(this).text(letter);
 				}
 			});
+			if (this.checkIfWon() == true) {
+				this.resetGameBoard();
+			}
 		}
 	}
 
 	inputBox(){
 		var letter = $(this).text().toLowerCase();
-		var phrase = this.phrases[this.currentPhraseIndex].phrase;
+		var phrase = this.phrases[this.currentRound].phrase;
 		if ($('#word-guess').val() === phrase) {
 			$('.alert.alert-success').css("display", "inline-block");
 			this.points = 0;
@@ -75,17 +90,20 @@ class WheelOfFortune {
 	displayPoints() {
 		$('#points_').text(this.points);
 	}
-	multipleRounds() {
-		// var letter = $(this).text().toLowerCase();
-		var phrase = this.phrases[this.currentPhraseIndex].phrase;
-		if ($('.phrase') === phrase) {
-			$('.alert.alert-success').css("display", "inline-block");
-			this.points = 0;
-			this.displayPoints();	
-			// for (var i = 0; i < phrase.length; i++) {
-			// 		var	phrase = this.phrases[this.currentPhraseIndex[i]].phrase;
-		}		
-		
+	nextRound() {	
+		this.currentRound++;
+	}
+	checkIfWon() {
+		let didWin = true;
+		$('.word-letter').each(function(){
+			if ($(this).data('letter') !== "" && $(this).text().trim() === "") {
+				didWin = false;
+			}
+		});
+		if (didWin) {
+			this.nextRound();
+		}
+		return didWin;			
 	}
 }
 
@@ -127,7 +145,7 @@ $('#button').click(function(){
 	wheelOfFortune.inputBox();
 });
 
-wheelOfFortune.multipleRounds();
+
 // $('.points').update(function(e){
 // 	e.preventDefault();
 // 	wheelOfFortune.pointsBoard();
