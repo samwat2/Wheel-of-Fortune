@@ -1,6 +1,16 @@
 html, body {
-background-color: #708090;
+/*background-color: #708090;*/
+/*background: #DBE6F6;
+background: -webkit-linear-gradient(to left, #C5796D, #DBE6F6);
+background: linear-gradient(to left, #C5796D, #DBE6F6);*/
+/*background: #1D4350; 
+background: -webkit-linear-gradient(to right, #A43931, #1D4350);
+background: linear-gradient(to right, #A43931, #1D4350);*/
+background: #FEAC5E;
+background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
+background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
 font-family: "Times New Roman", Georgia, Serif;
+color: black;
 }
 
 #wheel {
@@ -11,18 +21,34 @@ font-family: "Times New Roman", Georgia, Serif;
 	transition: all 1s ease;
 }
 .col-sm {
-	border-color: #000000;
-	background-color: #cce6ff;
+	border-color: black;
+	/*background-color: #cce6ff;*/
+	background-color: inherit;
 	transition: all 1s ease;
 	cursor: pointer; 
 }
 .disabled {
 	background-color: #BEBEBE;
 	cursor: default;
+	/*background-color: inherit;*/
 }
 .alert.alert-success {
 	display: none;
+	background-color: inherit;
 }
 .alert.alert-fail {
 	display: none;
+	background-color: inherit;
+}
+.jumbotron {
+	background-color: inherit;
+	opacity: .8;
+	font-weight: 750;
+}
+.card {
+	background-color: inherit;
+}
+.phrase {
+	border-color: black;
+	background-color: inherit;
 }
