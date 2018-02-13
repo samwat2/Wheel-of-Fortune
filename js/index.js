@@ -1,6 +1,6 @@
 class WheelOfFortune {
 	constructor(){
-		this.phrases = [{phrase: "Chill Digger", hint: 'C'}, {phrase:"Country Roads Take Me Home", hint:'C'}, {phrase:"Championship Match", hint: 'C'}, {phrase: "Mythological Hero Achilles", hint: 'M'}];
+		this.phrases = [{phrase: "Chill Digger", hint: 'This word has no: N'}, {phrase:"Country Roads Take Me Home", hint:'John Denver, 1971 hit song'}, {phrase:"Championship Match", hint: 'A contest for the position of champion in a sport or game'}, {phrase: "Mythological Hero Achilles", hint: 'mythical Greek heros name'}];
 		this.prizes = [1500, 150, 180, 450, 230, 180, 145, 430, 310, 385, 230, 430, 310, 180, 310, 375, 610, 310, 530, 230, 385];
 		this.multiplier = 0;
 		// this.currentPhraseIndex = 0;
@@ -34,11 +34,12 @@ class WheelOfFortune {
 	}
 	showGameBoard(){ 
 		var phrase = this.phrases[this.currentRound].phrase;
+		var hint = this.phrases[this.currentRound].hint;
 		// for (var i = 0; i < this.phrases.length; i++) {
 		// this.phrases[this.currentPhraseIndex].phrase;
 		//}
 		//Getting the code to display the next phrase.
-
+		$('#hint').text(hint);
 		for (var i = 0; i < phrase.length; i++) {
 			$('.phrase').append(`<div class="word-letter col border text-center" data-letter="${phrase[i] === ' ' ? '' : phrase[i].toLowerCase()}">&nbsp;</div>`);
 		}
@@ -49,10 +50,12 @@ class WheelOfFortune {
 		$('#frase').empty();
 		// 2 - reset points
 		this.points = 0
-		// 3 - show new phrase
+		this.updatePoints();
+		// 3- take disabled off letters
+		$('.letter').removeClass('disabled');
+		$('.letters-wrapper').addClass('disabled');
+		// 4 - show new phrase
 		this.showGameBoard();
-		// 4- take disabled off letters
-		$('.letters').removeClass('disabled');
 
 	}
 
@@ -92,6 +95,7 @@ class WheelOfFortune {
 	}
 	nextRound() {	
 		this.currentRound++;
+		$('.alert.alert-success').css("display", "inline-block");
 	}
 	checkIfWon() {
 		let didWin = true;
@@ -103,7 +107,7 @@ class WheelOfFortune {
 		if (didWin) {
 			this.nextRound();
 		}
-		return didWin;			
+		return didWin;		
 	}
 }
 
