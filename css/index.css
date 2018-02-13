@@ -1,5 +1,5 @@
 html, body {
-background-color: #e6ccff;
+background-color: #708090;
 font-family: "Times New Roman", Georgia, Serif;
 }
 
@@ -13,7 +13,7 @@ font-family: "Times New Roman", Georgia, Serif;
 .col-sm {
 	border-color: #000000;
 	background-color: #cce6ff;
-	transition: all 2s ease;
+	transition: all 1s ease;
 	cursor: pointer; 
 }
 .disabled {
